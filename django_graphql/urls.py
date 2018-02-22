@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """django_graphql URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -15,11 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.views.decorators.csrf import csrf_exempt
 
 from graphene_django.views import GraphQLView
 from .schema import schema
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('graphql/', GraphQLView.as_view(graphiql=True, schema=schema)),
+	# 忽略csrf_token验证
+    path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=True, schema=schema))),
 ]
