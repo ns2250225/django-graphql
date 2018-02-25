@@ -57,9 +57,9 @@ class Query(object):
 
     def resolve_all_titles(self, info, **kwargs):
         # 查询所有title的逻辑
-        return Book.objects.select_related('book_title').all()
+        return Title.objects.all()
 
     def resolve_all_authors(self, info, **kwargs):
         # 查询所有author的逻辑
-        return Book.objects.select_related('book_author').all()
+        return Author.objects.all()
 

@@ -7,7 +7,9 @@ import graphene
 import book.schema
 
 
-class Query(book.schema.Query, graphene.ObjectType):
+class Query(
+    book.schema.Query, 
+    graphene.ObjectType):
     # 总的Schema的query入口
     pass
 
